@@ -1,0 +1,25 @@
+{
+  "name": "Karan Sankoumba - Marabout Voyant Médium",
+  "short_name": "Karan Sankoumba",
+  "description": "Marabout voyant médium de 7ème génération - Retour affectif garanti 72h",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#D4AF37",
+  "background_color": "#0A0A0A",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/",
+  "orientation": "portrait-primary",
+  "lang": "fr-FR",
+  "dir": "ltr"
+}

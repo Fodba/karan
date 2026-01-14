@@ -2279,6 +2279,547 @@ p {
 }
 
 /* ==========================================================================
+   SECTION DANGERS DE L'AMOUR - CSS
+   À ajouter à la fin de style.css (avant les media queries finales)
+   ========================================================================== */
+
+/* ==========================================================================
+   1. SECTION PRINCIPALE
+   ========================================================================== */
+
+.section-dangers-amour {
+    background: linear-gradient(135deg, var(--noir-profond) 0%, var(--noir-doux) 50%, var(--violet-profond) 100%);
+    padding: var(--spacing-xl) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet de glow ambient */
+.section-dangers-amour::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+    animation: pulseGlow 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+}
+
+/* ==========================================================================
+   2. IMAGE HERO
+   ========================================================================== */
+
+.dangers-hero-image {
+    position: relative;
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.dangers-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.7);
+    transition: filter var(--transition-slow), transform var(--transition-slow);
+}
+
+.dangers-hero-image:hover .dangers-hero-img {
+    filter: brightness(0.85);
+    transform: scale(1.05);
+}
+
+/* Overlay avec titre */
+.dangers-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.4), rgba(74, 20, 140, 0.3));
+    backdrop-filter: blur(2px);
+}
+
+.dangers-hero-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--or-mystique);
+    text-align: center;
+    text-shadow: 
+        0 0 20px rgba(212, 175, 55, 0.8),
+        0 4px 10px rgba(0, 0, 0, 0.9);
+    padding: 0 2rem;
+    animation: fadeInUp 1s ease;
+}
+
+/* ==========================================================================
+   3. CONTENU PRINCIPAL (3 COLONNES)
+   ========================================================================== */
+
+.dangers-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    z-index: 1;
+}
+
+/* Image gauche (bougies) - Cachée sur mobile */
+.dangers-image-left {
+    display: none;
+}
+
+/* Texte central */
+.dangers-text {
+    color: var(--creme);
+    line-height: 1.8;
+}
+
+.dangers-text p {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Paragraphe d'introduction */
+.dangers-intro {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--or-clair);
+    line-height: 1.8;
+}
+
+/* Paragraphe mis en avant */
+.dangers-highlight {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(106, 27, 154, 0.15));
+    border-left: 4px solid var(--or-mystique);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+/* Paragraphe final */
+.dangers-final {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--or-mystique);
+    text-align: center;
+    padding: var(--spacing-md);
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: var(--radius-sm);
+}
+
+/* Mots en strong = or */
+.dangers-text strong {
+    color: var(--or-mystique);
+    font-weight: 700;
+}
+
+/* Image droite (objets rituels) */
+.dangers-image-right {
+    margin-top: var(--spacing-md);
+}
+
+.dangers-img-rituels,
+.dangers-img-bougies {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-md);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.dangers-img-rituels:hover,
+.dangers-img-bougies:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(212, 175, 55, 0.5);
+}
+
+/* ==========================================================================
+   4. BADGES (4 COLONNES)
+   ========================================================================== */
+
+.dangers-badges {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    z-index: 1;
+}
+
+.dangers-badge {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(74, 20, 140, 0.2));
+    border: 2px solid var(--or-mystique);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    text-align: center;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet de glow au hover */
+.dangers-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1), transparent);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.dangers-badge:hover::before {
+    opacity: 1;
+}
+
+.dangers-badge:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+    border-color: var(--or-clair);
+}
+
+/* Icône du badge */
+.badge-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--spacing-sm);
+    background: linear-gradient(135deg, var(--or-mystique), var(--or-clair));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    transition: transform var(--transition-normal);
+}
+
+.dangers-badge:hover .badge-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.badge-icon i {
+    width: 32px;
+    height: 32px;
+    color: var(--noir-profond);
+}
+
+/* Titre du badge */
+.badge-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--or-mystique);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Texte du badge */
+.badge-text {
+    font-size: 0.95rem;
+    color: var(--creme-fonce);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   5. CTA FINAL
+   ========================================================================== */
+
+.dangers-cta {
+    text-align: center;
+    padding: var(--spacing-lg) 0;
+    position: relative;
+    z-index: 1;
+}
+
+.dangers-cta-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--creme);
+    margin-bottom: var(--spacing-md);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.dangers-cta .btn {
+    font-size: 1.25rem;
+    padding: 1rem 2.5rem;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+.dangers-cta .btn:hover {
+    box-shadow: 0 12px 35px rgba(212, 175, 55, 0.6);
+    transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   6. RESPONSIVE - TABLET (768px+)
+   ========================================================================== */
+
+@media (min-width: 768px) {
+    /* Hero image plus grande */
+    .dangers-hero-image {
+        max-height: 500px;
+    }
+    
+    .dangers-hero-title {
+        font-size: 3.5rem;
+    }
+    
+    /* Contenu en 2 colonnes */
+    .dangers-content {
+        grid-template-columns: 2fr 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    /* Texte à gauche */
+    .dangers-text {
+        grid-column: 1;
+    }
+    
+    /* Image objets à droite */
+    .dangers-image-right {
+        grid-column: 2;
+        margin-top: 0;
+    }
+    
+    /* Badges en 4 colonnes */
+    .dangers-badges {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    /* Texte des badges plus petit sur 4 colonnes */
+    .badge-title {
+        font-size: 1.125rem;
+    }
+    
+    .badge-text {
+        font-size: 0.875rem;
+    }
+}
+
+/* ==========================================================================
+   7. RESPONSIVE - DESKTOP (1024px+)
+   ========================================================================== */
+
+@media (min-width: 1024px) {
+    /* Section avec plus d'espace */
+    .section-dangers-amour {
+        padding: var(--spacing-2xl) 0;
+    }
+    
+    /* Hero image encore plus grande */
+    .dangers-hero-image {
+        max-height: 600px;
+        border-radius: var(--radius-lg);
+    }
+    
+    .dangers-hero-title {
+        font-size: 4rem;
+    }
+    
+    /* Contenu en 3 VRAIES colonnes */
+    .dangers-content {
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    /* Image bougies à gauche (VISIBLE) */
+    .dangers-image-left {
+        display: block;
+        grid-column: 1;
+        align-self: center;
+    }
+    
+    /* Texte au centre */
+    .dangers-text {
+        grid-column: 2;
+    }
+    
+    /* Image objets à droite */
+    .dangers-image-right {
+        grid-column: 3;
+        align-self: start;
+    }
+    
+    /* Images plus grandes */
+    .dangers-img-bougies {
+        max-width: 100%;
+    }
+    
+    .dangers-img-rituels {
+        max-width: 100%;
+    }
+    
+    /* Texte paragraphes plus grands */
+    .dangers-text p {
+        font-size: 1.25rem;
+    }
+    
+    .dangers-intro {
+        font-size: 1.375rem;
+    }
+    
+    .dangers-final {
+        font-size: 1.375rem;
+    }
+    
+    /* Badges plus espacés */
+    .dangers-badges {
+        gap: var(--spacing-lg);
+    }
+    
+    .badge-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .badge-icon i {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .badge-title {
+        font-size: 1.375rem;
+    }
+    
+    .badge-text {
+        font-size: 1rem;
+    }
+}
+
+/* ==========================================================================
+   8. RESPONSIVE - LARGE DESKTOP (1440px+)
+   ========================================================================== */
+
+@media (min-width: 1440px) {
+    .dangers-hero-image {
+        max-height: 700px;
+    }
+    
+    .dangers-hero-title {
+        font-size: 5rem;
+    }
+    
+    .dangers-text p {
+        font-size: 1.375rem;
+    }
+    
+    .dangers-intro {
+        font-size: 1.5rem;
+    }
+}
+
+/* ==========================================================================
+   9. ANIMATIONS
+   ========================================================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation au scroll (optionnel - nécessite JS) */
+.dangers-content,
+.dangers-badges,
+.dangers-cta {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.dangers-content {
+    animation-delay: 0.2s;
+}
+
+.dangers-badges {
+    animation-delay: 0.4s;
+}
+
+.dangers-cta {
+    animation-delay: 0.6s;
+}
+
+/* ==========================================================================
+   10. RESPONSIVE MOBILE - PETITS ÉCRANS (< 480px)
+   ========================================================================== */
+
+@media (max-width: 480px) {
+    .dangers-hero-title {
+        font-size: 2rem;
+    }
+    
+    .dangers-text p {
+        font-size: 1rem;
+    }
+    
+    .dangers-intro,
+    .dangers-final {
+        font-size: 1.125rem;
+    }
+    
+    .dangers-badges {
+        gap: var(--spacing-sm);
+    }
+    
+    .badge-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .badge-icon i {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .badge-title {
+        font-size: 1rem;
+    }
+    
+    .badge-text {
+        font-size: 0.875rem;
+    }
+    
+    .dangers-cta-text {
+        font-size: 1.125rem;
+    }
+    
+    .dangers-cta .btn {
+        font-size: 1.125rem;
+        padding: 0.875rem 1.5rem;
+    }
+}
+
+
+/* ==========================================================================
    22. RESPONSIVE - DESKTOP (1024px+)
    ========================================================================== */
 
@@ -2329,6 +2870,31 @@ p {
     /* Footer */
     .footer-content {
         grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+.footer-logo {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.footer-logo-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    transition: transform var(--transition-normal);
+}
+
+.footer-logo-image:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
+@media (max-width: 768px) {
+    .footer-logo-image {
+        width: 60px;
+        height: 60px;
     }
 }
 

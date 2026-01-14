@@ -1,0 +1,146 @@
+# robots.txt pour karansankoumba.fr
+# Date de création : 14 janvier 2025
+
+# Autoriser tous les robots d'exploration
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.karan-sankoumba.fr/sitemap.xml
+
+# Désindexer fichiers système et dossiers privés (si présents)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /backup/
+Disallow: /*.log$
+Disallow: /*.sql$
+Disallow: /*.zip$
+
+# Permettre l'indexation des ressources importantes
+Allow: /images/
+Allow: /assets/css/
+Allow: /assets/js/
+
+# Crawl-delay (optionnel, pour éviter surcharge serveur)
+# Crawl-delay: 1
+
+
+# ========================================================================
+# INSTRUCTIONS D'UTILISATION
+# ======================================================================== 
+#
+# 📍 OÙ PLACER CE FICHIER
+#
+# À la RACINE du site (même niveau que index.html) :
+#
+# votre-site/
+# ├── index.html
+# ├── robots.txt        ← ICI
+# ├── sitemap.xml
+# ├── favicon.ico
+# └── ...
+#
+#
+# ⚠️ PLACEHOLDERS À REMPLACER
+#
+# Remplacer "https://www.karan-sankoumba.fr" par l'URL RÉELLE
+#
+#
+# 🤖 ROBOTS AUTORISÉS
+#
+# User-agent: * signifie "tous les robots"
+# Allow: / signifie "tout le site est accessible"
+#
+# Robots concernés :
+# - Googlebot (Google)
+# - Bingbot (Bing)
+# - Slurp (Yahoo)
+# - DuckDuckBot (DuckDuckGo)
+# - Tous les autres moteurs de recherche
+#
+#
+# 🚫 DOSSIERS À BLOQUER
+#
+# Les lignes Disallow empêchent l'indexation de :
+# - /admin/ : Interface d'administration
+# - /private/ : Fichiers privés
+# - /backup/ : Sauvegardes
+# - *.log : Fichiers de log
+# - *.sql : Bases de données
+# - *.zip : Archives
+#
+# Si ces dossiers n'existent pas sur ton site, pas grave.
+# C'est une protection préventive.
+#
+#
+# ✅ VÉRIFIER QUE ROBOTS.TXT FONCTIONNE
+#
+# 1. Uploader le fichier à la racine
+# 2. Tester l'accès : https://www.karan-sankoumba.fr/robots.txt
+# 3. Vérifier dans Google Search Console :
+#    - Paramètres > robots.txt
+#    - Tester l'URL du robots.txt
+#
+#
+# 🔧 GOOGLE SEARCH CONSOLE
+#
+# Une fois le fichier en ligne :
+# 1. Aller dans Google Search Console
+# 2. Paramètres > Testeur de robots.txt
+# 3. Vérifier qu'il n'y a pas d'erreurs
+# 4. Tester des URLs spécifiques
+#
+#
+# 📊 IMPACT SEO
+#
+# Un robots.txt bien configuré :
+# ✅ Indique le sitemap aux moteurs de recherche
+# ✅ Empêche l'indexation de pages sensibles
+# ✅ Optimise le crawl budget
+# ✅ Améliore l'efficacité de l'exploration
+#
+#
+# 💡 BONNES PRATIQUES
+#
+# ✅ À FAIRE :
+# - Garder le fichier simple et lisible
+# - Référencer le sitemap
+# - Bloquer uniquement ce qui doit l'être
+# - Tester régulièrement
+#
+# ❌ À NE PAS FAIRE :
+# - Bloquer /images/ (mauvais pour SEO images)
+# - Bloquer /assets/ (CSS/JS nécessaires au rendu)
+# - Utiliser robots.txt pour cacher du contenu sensible
+#   (utilise plutôt un mot de passe)
+# - Mettre des URLs absolues (utilise des chemins relatifs)
+#
+#
+# 🔄 QUAND METTRE À JOUR
+#
+# Mettre à jour robots.txt si :
+# - Tu ajoutes un nouveau dossier à bloquer
+# - Tu changes l'URL du sitemap
+# - Tu veux ajuster le crawl-delay
+# - Tu veux bloquer un robot spécifique
+#
+#
+# 🎯 EXEMPLE : BLOQUER UN ROBOT SPÉCIFIQUE
+#
+# Si tu veux bloquer un robot particulier (spam, scraper) :
+#
+# User-agent: BadBot
+# Disallow: /
+#
+# User-agent: *
+# Allow: /
+#
+#
+# 🚀 APRÈS MISE EN LIGNE
+#
+# 1. Vérifier : https://www.karan-sankoumba.fr/robots.txt
+# 2. Tester avec Google Search Console
+# 3. Soumettre le sitemap (déjà référencé dans robots.txt)
+# 4. Attendre 1-7 jours pour indexation
+#
+# ======================================================================== 
